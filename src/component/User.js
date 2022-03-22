@@ -10,6 +10,10 @@ function User(props) {
         <strong>{props.user.name}</strong>
         <p>Email: {props.user.email}</p>
         <br/>
+        <p>Country: {props.user.country}</p>
+        <br/>
+        <p>City: {props.user.city}</p>
+        <br/>
     </div>
   );
 }

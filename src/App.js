@@ -17,10 +17,12 @@ class App extends React.Component {
                       name: `${user.name.first} ${user.name.last}`,
                       img: user.picture.large,
                       email: user.email,
+                      city: user.location.city,
+                      country: user.location.country
                   }    
               });
             this.setState({users:users})
-            console.log(users)
+            console.log(res.data.results)
       })
     .catch((error)=>{console.log(error); })
     }
