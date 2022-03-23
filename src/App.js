@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import User from './component/User';
+import './App.css'
+import ListUsers from './component/ListUsers'
 
 class App extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class App extends React.Component {
                       country: user.location.country
                   }    
               });
+            
             this.setState({users:users})
             console.log(res.data.results)
       })
@@ -32,9 +34,13 @@ class App extends React.Component {
   
     render() {
       return (
-        <div >
-           {this.state.users.map((user,index) => <User key ={index} user={user} />)}
-        </div>
+        <div className="App">
+        <header>
+          <div>
+           <ListUsers users = {this.state.users} />
+          </div>
+        </header>
+      </div>
       );
     }
   }

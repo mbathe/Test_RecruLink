@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './User.css';
 
 function User(props) {
 
   return (
-    <div >
-        <img src={props.user.img} alt="img" />
-        <br/>
-        <strong>{props.user.name}</strong>
-        <p>Email: {props.user.email}</p>
-        <br/>
-        <p>Country: {props.user.country}</p>
-        <br/>
-        <p>City: {props.user.city}</p>
-        <br/>
-    </div>
+  
+    <li className="list-item">
+      <div>
+        <img src={props.user.img} className="avatar" alt='img' />
+      </div>
+      <div className="content">
+        <h1 className='h1'>{props.user.name}</h1>
+        <p className='p'>Email: {props.user.email}</p>
+        <p className='p'>City: {props.user.city}</p>
+        <p className='p'>Country: {props.user.country}</p>
+      </div>
+    </li>
+    
   );
 }
 
