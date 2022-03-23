@@ -51,4 +51,19 @@
       padding-left: 50px;
   }
 
+  .input[type=text] {
+    height: 30px;
+    margin-left: 2px;
+    width: 40%;
+    border: none;
+    border-bottom: 2px solid rgb(206, 199, 199);
+  }
   
+.tag{
+    background-color: beige;
+    max-width: 70px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-top: 8px;
+}

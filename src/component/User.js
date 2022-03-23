@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import axios from 'axios';
 import './User.css';
 import plus from './plus.png';
 import moins from './moins.png';
@@ -7,6 +6,16 @@ import moins from './moins.png';
 function User(props) {
   
   const [expended,setExpended] = useState(false);
+  const [tag, setTag] = useState('');
+
+
+
+  const onKeyUp =(event) => {
+    if (event.charCode === 13) {
+      props.addTag(props.id,tag);
+      setTag('');
+    }
+  }
 
   return (
   
@@ -19,6 +28,12 @@ function User(props) {
         <p className='p'>Email: {props.user.email}</p>
         <p className='p'>City: {props.user.city}</p>
         <p className='p'>Country: {props.user.country}</p>
+
+        {props.user.tags.map((tag, index) => <div className='tag' key ={index} > {tag} </div>)}
+
+        <div>
+          <input type="text" placeholder="Add a tag"  className='input' value= {tag} onChange={(e)=>{setTag(e.target.value)}} onKeyPress={onKeyUp} ></input>
+        </div>
 
         {expended && <div>
           <br/>
