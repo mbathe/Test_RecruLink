@@ -6,7 +6,9 @@ import ListUsers from './component/ListUsers'
 class App extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {users: []};
+      this.state = {users: [], usersFilter: []};
+      this.handleInput = this.handleInput.bind(this);
+      this.filtreUser = this.filtreUser.bind(this);
     }
   
     componentDidMount() {
@@ -24,20 +26,41 @@ class App extends React.Component {
               });
             
             this.setState({users:users})
-            console.log(res.data.results)
+            this.setState({usersFilter:users})
+            
       })
     .catch((error)=>{console.log(error); })
     }
   
     componentWillUnmount() {
     }
+
+
+    filtreUser = (requete) => {
+      return this.state.users.filter(el =>  el.name.toLowerCase().indexOf(requete.toLowerCase()) !== -1);
+    }
+
+    handleInput(e){
+      
+      if(e.target.value===""){
+        this.setState({usersFilter:this.state.users});
+      }else{
+        const userfilter = this.filtreUser(e.target.value);
+        this.setState({usersFilter:userfilter});
+      }
+      
+    }
   
     render() {
       return (
         <div className="App">
         <header>
+        <div>
+          <input type="text" placeholder="Search by name"  onChange={this.handleInput} ></input>
+        </div>
+  
           <div>
-           <ListUsers users = {this.state.users} />
+           <ListUsers users = {this.state.usersFilter} />
           </div>
         </header>
       </div>

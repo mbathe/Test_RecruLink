@@ -34,8 +34,8 @@ body{
   outline: none;
 }
 #to-do-form button{
-  height: 40px;
-  width: 85px;
+  height: 20px;
+  width: 100%;
   border-radius: 8px;
   border: 0;
   background-color:#ffffff; 
@@ -43,4 +43,20 @@ body{
 }
 #to-do-form button:focus{
   outline: none;
+}
+
+input[type=text] {
+  height: 30px;
+  margin-left: 2px;
+  width: 98%;
+  border: none;
+  border-bottom: 2px solid rgb(206, 199, 199);
+}
+
+::placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: rgb(126, 134, 130);
+  
+  padding: 5px;
 }
